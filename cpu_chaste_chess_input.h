@@ -116,6 +116,8 @@ void undo_move_piece()
  /*therefore go back 4 ints to get index before the move would have occurred*/
  /*xy_move_index-=4;*/
 
+ main_grid.array[x+y*8].moves-=2; /*since we undid the move, reduce piece move count*/
+
  /*and restore the piece that would have been there before the original move*/
  main_grid.array[x1+y1*8]=last_piece_captured;
 
