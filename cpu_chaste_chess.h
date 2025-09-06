@@ -75,12 +75,20 @@ struct chess_piece ps;
 /*global chess piece that will be used for the en_passant rule*/
 struct chess_piece en_passant;
 
+struct chess_move
+{
+ int source_x,source_y; /*where on the grid the piece is moving from*/
+ int dest_x,dest_y; /*where on the grid the piece is moving to*/
+ struct chess_piece moving_piece,captured_piece; /* for saving the piece data of the moving piece and which piece was captured. If the id of the piece is '0', then it is assumed there was no piece there*/
+
+ int capture_x,capture_y; /*location the captured pieces was. It is important to consider that in the case of en passant, the captured pawn may be in a different location than where the capturing pawn moves to! This Chess rule makes the programming more difficult to account for.*/
+};
+
 
 struct chess_grid
 {
  struct chess_piece array[64];
 };
-
 
 struct chess_grid main_grid;
 

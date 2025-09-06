@@ -310,7 +310,7 @@ if(p.id=='0'&&ps.id=='K')
 	 }
 	 else
 	 {
-		 printf("piece can't move there\n");
+		 /*printf("piece can't move there\n");*/
 	 }
 	}
    }
