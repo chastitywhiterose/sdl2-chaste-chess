@@ -241,8 +241,8 @@ int main(int argc, char **argv)
 /*after game ends, start the replay*/
 
 
-xy_move_length=xy_move_index;
-xy_move_index=0;
+move_data_length=move_data_index;
+move_data_index=0;
 
 /*reset move index to zero after getting the length it was at when the game ended.*/
 
@@ -276,10 +276,10 @@ while(loop!=0)
 while(xy_move_index<xy_move_length)
 {
 
- x=xy_move_log[xy_move_index];
- y=xy_move_log[xy_move_index+1];
- x1=xy_move_log[xy_move_index+2];
- y1=xy_move_log[xy_move_index+3];
+ x=move_data_array[move_data_index].source_x;
+ y=move_data_array[move_data_index].source_y;
+ x1=move_data_array[move_data_index].dest_x;
+ y1=move_data_array[move_data_index].dest_y;
 
  printf("move_xy(%d,%d,%d,%d);\n",x,y,x1,y1);
 
@@ -288,7 +288,6 @@ while(xy_move_index<xy_move_length)
  /*wait_for_input();*/
 
  xy_move_index+=4;
-
 
 }
 

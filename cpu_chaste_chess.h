@@ -86,7 +86,7 @@ struct chess_move
 
 /*global array of structure to record every move played in the game. Theoretically, this could be used to output standard Chess notation.*/
 struct chess_move move_data_array[0x100];
-int move_data_index=0;
+int move_data_index=0,move_data_length=0;
 
 
 struct chess_grid
