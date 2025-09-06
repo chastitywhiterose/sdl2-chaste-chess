@@ -135,8 +135,10 @@ void undo_move_piece()
 void chess_square_select()
 {
 
+  /*select piece on clicked square. This includes an empty piece of '0' which is considered invalid for moving*/
   p=main_grid.array[x+y*8];
 
+  /*set the location of the piece based on which grid square was clicked*/
     p.x=x;
     p.y=y;
 
