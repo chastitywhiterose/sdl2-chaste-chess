@@ -103,8 +103,55 @@ move_data_array[move_data_index].capture_y=y;
 }
 
 
+
 /*moves the piece by calling the new function which is defined in cpu_chaste_chess_moves.h*/
 void undo_move_piece()
+{
+
+ printf("move_data_index==%d\n",move_data_index);
+ if(move_data_index==0){return;}
+
+ /*go back 4 ints to get last move info*/
+ xy_move_index-=4;
+
+ last_piece_captured=pieces_captured[xy_move_index];
+
+ x=xy_move_log[xy_move_index];
+ y=xy_move_log[xy_move_index+1];
+ x1=xy_move_log[xy_move_index+2];
+ y1=xy_move_log[xy_move_index+3];
+
+ printf("undoing last move: move_xy(%d,%d,%d,%d);\n",x,y,x1,y1);
+
+ /*
+ calling the move function will automatically increment the move counter
+ even though we are undoing a move instead of creating a new one.
+ */
+ move_xy(x1,y1,x,y);
+
+ /*therefore go back 4 ints to get index before the move would have occurred*/
+ /*xy_move_index-=4;*/
+
+ main_grid.array[x+y*8].moves-=2; /*since we undid the move, reduce piece move count*/
+
+ /*and restore the piece that would have been there before the original move*/
+ main_grid.array[x1+y1*8]=last_piece_captured;
+
+ move_render();
+
+
+
+
+ init_highlight();
+}
+
+
+
+
+
+
+/*moves the piece by calling the new function which is defined in cpu_chaste_chess_moves.h*/
+void undo_move_piece_old()
 {
  struct chess_piece last_piece_captured;
 
