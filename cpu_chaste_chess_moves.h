@@ -329,6 +329,9 @@ y_step=y1-y;
     if(x1==en_passant.x&&y1==en_passant.y)
     {
      move_data_array[move_data_index].captured_piece=main_grid.array[x1+(y1-dir)*8]; /*save to the move data before deleting the piece*/
+     move_data_array[move_data_index].capture_x=x1;
+     move_data_array[move_data_index].capture_y=(y1-dir);
+
      main_grid.array[x1+(y1-dir)*8].id='0'; /*this piece was captured en passant (in passing)*/
      printf("en_passant captured at %d,%d\n",en_passant.x,en_passant.y);
     }
