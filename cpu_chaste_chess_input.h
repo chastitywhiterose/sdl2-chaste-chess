@@ -69,9 +69,26 @@ while(SDL_PollEvent(&e))
 /*moves the piece by calling the new function which is defined in cpu_chaste_chess_moves.h*/
 void move_piece()
 {
- move_xy(ps.x,ps.y,x,y);
 
- /*save to the memory move log*/
+
+move_data_array[move_data_index].source_x=ps.x;
+move_data_array[move_data_index].source_y=ps.y;
+move_data_array[move_data_index].dest_x=x;
+move_data_array[move_data_index].dest_y=y;
+
+move_data_array[move_data_index].moving_piece=main_grid.array[ps.x+ps.y*8];
+
+
+move_data_array[move_data_index].captured_piece=main_grid.array[x+y*8]; /*be default, we assume that the location the piece moves to is the same as the piece that is captured. The move_xy function will overwrite this value in the special case of en passant*/
+
+move_data_array[move_data_index].capture_x=x;
+move_data_array[move_data_index].capture_y=y;
+
+ move_xy(ps.x,ps.y,x,y); /* now actually call the function to move the piece*/
+
+ move_data_index++; /*increment the move counter now that the movement is done*/
+
+ /*save to the memory move log, legacy code*/
 
  xy_move_log[xy_move_index]=ps.x;
  xy_move_log[xy_move_index+1]=ps.y;

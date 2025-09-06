@@ -105,13 +105,8 @@ int main(int argc, char **argv)
  init_main_grid();
  en_passant.id='0';
 
- /*pgn_chaste_chess_demo_1();*/
-
-
-
  /*printf("Initial state of the chessboard\n");*/
  chess_grid_print();
-
  
  /*return 0;*/
 

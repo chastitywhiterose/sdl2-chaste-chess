@@ -84,6 +84,10 @@ struct chess_move
  int capture_x,capture_y; /*location the captured pieces was. It is important to consider that in the case of en passant, the captured pawn may be in a different location than where the capturing pawn moves to! This Chess rule makes the programming more difficult to account for.*/
 };
 
+/*global array of structure to record every move played in the game. Theoretically, this could be used to output standard Chess notation.*/
+struct chess_move move_data_array[0x100];
+int move_data_index=0;
+
 
 struct chess_grid
 {
