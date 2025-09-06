@@ -87,15 +87,6 @@ move_data_array[move_data_index].capture_y=y;
 
  move_data_index++; /*increment the move counter now that the movement is done*/
 
- /*save to the memory move log, legacy code*/
-
- xy_move_log[xy_move_index]=ps.x;
- xy_move_log[xy_move_index+1]=ps.y;
- xy_move_log[xy_move_index+2]=x;
- xy_move_log[xy_move_index+3]=y;
-
- xy_move_index+=4;
-
  /*move saved to memory*/
 
 

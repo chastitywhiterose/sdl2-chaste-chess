@@ -273,7 +273,7 @@ while(loop!=0)
   }
 
 /*replay moves from the movelog*/
-while(xy_move_index<xy_move_length)
+while(move_data_index<move_data_length)
 {
 
  x=move_data_array[move_data_index].source_x;
@@ -287,7 +287,7 @@ while(xy_move_index<xy_move_length)
 
  /*wait_for_input();*/
 
- xy_move_index+=4;
+ move_data_index++;
 
 }
 
@@ -310,7 +310,7 @@ loop=2;
      view_flipped=starting_view_flip;
      turn='W';
      move_render();
-     xy_move_index=0;
+     move_data_index=0;
      loop=1;
     }
 
