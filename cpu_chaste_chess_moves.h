@@ -318,7 +318,7 @@ y_step=y1-y;
    en_passant.color=turn;
    en_passant.x=x1;
    en_passant.y=y1-dir;
-   /*printf("en_passant marked at %d,%d\n",en_passant.x,en_passant.y);*/
+   printf("en_passant potential marked at %d,%d\n",en_passant.x,en_passant.y);
   }
   else
   {
@@ -328,12 +328,13 @@ y_step=y1-y;
 
     if(x1==en_passant.x&&y1==en_passant.y)
     {
-     main_grid.array[x1+(y1-dir)*8].id='0';
-     /*printf("en_passant captured at %d,%d\n",en_passant.x,en_passant.y);*/
+     move_data_array[move_data_index].captured_piece=main_grid.array[x1+(y1-dir)*8]; /*save to the move data before deleting the piece*/
+     main_grid.array[x1+(y1-dir)*8].id='0'; /*this piece was captured en passant (in passing)*/
+     printf("en_passant captured at %d,%d\n",en_passant.x,en_passant.y);
     }
    }
 
-   en_passant.id='0';
+   en_passant.id='0'; /*whether the piece is captured en passant or not, it will be cleared here because you only have the chance on that turn to capture it right after an opponent has moved a pawn two spaces*/
   }
   
 

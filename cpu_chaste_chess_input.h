@@ -78,7 +78,6 @@ move_data_array[move_data_index].dest_y=y;
 
 move_data_array[move_data_index].moving_piece=main_grid.array[ps.x+ps.y*8];
 
-
 move_data_array[move_data_index].captured_piece=main_grid.array[x+y*8]; /*be default, we assume that the location the piece moves to is the same as the piece that is captured. The move_xy function will overwrite this value in the special case of en passant*/
 
 move_data_array[move_data_index].capture_x=x;
